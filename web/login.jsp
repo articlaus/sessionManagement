@@ -22,6 +22,7 @@
     >
     <label>remember me</label>
     <input type="submit" value="Login">
+      <p>${error}</p>
 </form>
 </body>
 </html>
