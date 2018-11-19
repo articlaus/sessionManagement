@@ -28,6 +28,7 @@ public class LoginServlet extends HttpServlet {
                     cookie.setMaxAge(3600); //in seconds
                 else
                     cookie.setMaxAge(0);
+
                 resp.addCookie(cookie);
                 httpSession.setAttribute("user", user);
                 resp.sendRedirect("/hello");
@@ -36,7 +37,8 @@ public class LoginServlet extends HttpServlet {
         }
         if (!abc) {
             req.setAttribute("error", "User Not Found!");
-            resp.sendRedirect("/login");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/login.jsp");
+            dispatcher.forward(req, resp);
         }
 
     }
